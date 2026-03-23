@@ -43,15 +43,31 @@ GitHub Copilot works best with Git installed and configured. Here's how to set i
 
 GitHub Copilot in the terminal requires the **GitHub CLI**:
 
+**Option A — Direct installer (recommended for all Windows versions):**
 1. Go to: [https://cli.github.com/](https://cli.github.com/)
-2. Download the Windows installer (`.msi`), or install via **winget**:
-   ```powershell
-   winget install --id GitHub.cli
-   ```
-3. Verify the installation:
-   ```powershell
-   gh --version
-   ```
+2. Click **Download for Windows** to get the `.msi` installer.
+3. Run the `.msi` file and follow the setup wizard.
+
+**Option B — winget** *(Windows 10 build 1709+ with App Installer from the Microsoft Store):*
+```powershell
+winget install --id GitHub.cli
+```
+> ⚠️ If you see `'winget' is not recognized`, use **Option A** above instead.
+
+**Option C — Chocolatey** *(if you have [Chocolatey](https://chocolatey.org/install) installed):*
+```powershell
+choco install gh
+```
+
+**Option D — Scoop** *(if you have [Scoop](https://scoop.sh/) installed):*
+```powershell
+scoop install gh
+```
+
+After installation, verify it with:
+```powershell
+gh --version
+```
 
 ### Step 3: Authenticate with GitHub
 
@@ -59,19 +75,27 @@ GitHub Copilot in the terminal requires the **GitHub CLI**:
 gh auth login
 ```
 
-Follow the prompts to authenticate via browser or token.
+Follow the prompts — select **GitHub.com**, **HTTPS**, and **Login with a web browser**. Copy the one-time code shown, press Enter, and paste the code in the browser to complete authentication.
 
-### Step 4: Enable GitHub Copilot in CLI
+### Step 4: Use GitHub Copilot in CLI
+
+> ℹ️ GitHub CLI v2.x and later includes Copilot **built-in**. You do **not** need to run `gh extension install github/gh-copilot` — that command will conflict with the built-in version and show the error `"copilot" matches the name of a built-in command`.
+
+Use Copilot directly with the `-p` flag for non-interactive (scripted) usage:
 
 ```powershell
-gh extension install github/gh-copilot
+# Get a suggested shell command
+gh copilot suggest -p "how do I list all files in a directory"
+
+# Explain a command
+gh copilot explain -p "git rebase -i HEAD~3"
 ```
 
-Now you can use Copilot in the terminal:
+Or run interactively (Copilot will prompt you for details):
 
 ```powershell
-gh copilot suggest "how do I list all files in a directory"
-gh copilot explain "git rebase -i HEAD~3"
+gh copilot suggest
+gh copilot explain
 ```
 
 ### 📌 Quick Reference
@@ -81,5 +105,7 @@ gh copilot explain "git rebase -i HEAD~3"
 | `git --version` | Check Git version |
 | `gh --version` | Check GitHub CLI version |
 | `gh auth login` | Authenticate with GitHub |
-| `gh copilot suggest "<task>"` | Ask Copilot to suggest a command |
-| `gh copilot explain "<command>"` | Ask Copilot to explain a command |
+| `gh copilot suggest -p "<task>"` | Ask Copilot to suggest a command (non-interactive) |
+| `gh copilot explain -p "<command>"` | Ask Copilot to explain a command (non-interactive) |
+| `gh copilot suggest` | Ask Copilot to suggest a command (interactive) |
+| `gh copilot explain` | Ask Copilot to explain a command (interactive) |
