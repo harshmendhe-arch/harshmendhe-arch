@@ -22,3 +22,64 @@ Learning a specific language (e.g., Python, Rust, JavaScript)<br><br>Web develop
 [![](https://visitcount.itsvg.in/api?id=harshmendhe-arch&icon=0&color=0)](https://visitcount.itsvg.in)
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+
+---
+
+## 🛠️ How to Install Git CLI on Windows for GitHub Copilot
+
+GitHub Copilot works best with Git installed and configured. Here's how to set it up on Windows:
+
+### Step 1: Install Git for Windows
+
+1. Go to the official Git website: [https://git-scm.com/download/win](https://git-scm.com/download/win)
+2. Download the latest **64-bit Git for Windows Setup** installer.
+3. Run the installer and follow the setup wizard (the default options work well for most users).
+4. Verify the installation by opening **Command Prompt** or **PowerShell** and running:
+   ```powershell
+   git --version
+   ```
+
+### Step 2: Install GitHub CLI (`gh`)
+
+GitHub Copilot in the terminal requires the **GitHub CLI**:
+
+1. Go to: [https://cli.github.com/](https://cli.github.com/)
+2. Download the Windows installer (`.msi`), or install via **winget**:
+   ```powershell
+   winget install --id GitHub.cli
+   ```
+3. Verify the installation:
+   ```powershell
+   gh --version
+   ```
+
+### Step 3: Authenticate with GitHub
+
+```powershell
+gh auth login
+```
+
+Follow the prompts to authenticate via browser or token.
+
+### Step 4: Enable GitHub Copilot in CLI
+
+```powershell
+gh extension install github/gh-copilot
+```
+
+Now you can use Copilot in the terminal:
+
+```powershell
+gh copilot suggest "how do I list all files in a directory"
+gh copilot explain "git rebase -i HEAD~3"
+```
+
+### 📌 Quick Reference
+
+| Command | Description |
+|---|---|
+| `git --version` | Check Git version |
+| `gh --version` | Check GitHub CLI version |
+| `gh auth login` | Authenticate with GitHub |
+| `gh copilot suggest "<task>"` | Ask Copilot to suggest a command |
+| `gh copilot explain "<command>"` | Ask Copilot to explain a command |
