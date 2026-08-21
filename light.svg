@@ -1,0 +1,65 @@
+<svg viewBox="0 0 1000 220" xmlns="http://www.w3.org/2000/svg" font-family="'Cascadia Code','Fira Code',Consolas,'Courier New',monospace">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f6f8fa"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0969da">
+        <animate attributeName="stop-color" values="#0969da;#1a7f37;#bf3989;#0969da" dur="9s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="1" stop-color="#bf3989">
+        <animate attributeName="stop-color" values="#bf3989;#0969da;#1a7f37;#bf3989" dur="9s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.3" fill="#d8dee4"/>
+    </pattern>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0969da" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#0969da" stop-opacity="0.04"/>
+      <stop offset="1" stop-color="#0969da" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="type1">
+      <rect x="64" y="72" height="44" width="0">
+        <animate attributeName="width" values="0;650;650;650" keyTimes="0;0.30;0.94;1" dur="10s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <clipPath id="type2">
+      <rect x="64" y="126" height="32" width="0">
+        <animate attributeName="width" values="0;0;445;445" keyTimes="0;0.34;0.62;1" dur="10s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+  </defs>
+
+  <rect width="1000" height="220" fill="url(#bg)"/>
+  <rect width="1000" height="220" fill="url(#dots)" opacity="0.7"/>
+
+  <ellipse cx="340" cy="112" rx="430" ry="92" fill="#0969da" opacity="0.05">
+    <animate attributeName="opacity" values="0.03;0.07;0.03" dur="7s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <rect x="-260" y="0" width="240" height="220" fill="url(#shine)">
+    <animate attributeName="x" values="-260;1040" dur="6s" repeatCount="indefinite"/>
+  </rect>
+
+  <circle cx="40" cy="38" r="7" fill="#ff5f57"/>
+  <circle cx="64" cy="38" r="7" fill="#febc2e"/>
+  <circle cx="88" cy="38" r="7" fill="#28c840"/>
+  <text x="962" y="43" text-anchor="end" font-size="15" fill="#6e7781">~/github.com/harshmendhe-arch</text>
+
+  <g clip-path="url(#type1)">
+    <text x="66" y="106" font-size="36" font-weight="700" fill="#24292f"><tspan fill="#1a7f37">$</tspan> echo "Hi, I'm <tspan fill="url(#accent)">Harsh Mendhe</tspan>"</text>
+  </g>
+
+  <g clip-path="url(#type2)">
+    <text x="66" y="150" font-size="22" fill="#57606a">&gt; building cool things with code<tspan fill="#1a7f37">_<animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/></tspan></text>
+  </g>
+
+  <circle cx="71" cy="190" r="5" fill="#1a7f37">
+    <animate attributeName="opacity" values="1;0.25;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="86" y="195" font-size="14" fill="#6e7781">open to collaborate - always shipping</text>
+
+  <rect x="6" y="6" width="988" height="208" rx="14" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.45"/>
+</svg>
